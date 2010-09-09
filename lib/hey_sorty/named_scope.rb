@@ -12,7 +12,7 @@ module HeySorty
         # Available options
         valid_orders = %w[asc desc]
         valid_columns = columns.map(&:name)
-        valid_columns += reflections.map{|r| r[1].class_name.constantize.columns.map{|c| "#{r[0]}.#{c.name}"}}.flatten
+        valid_columns += reflections.map{|r| r[1].options[:polymorphic] === true ? nil : r[1].class_name.constantize.columns.map{|c| "#{r[0]}.#{c.name}"}}.flatten
                
         # Check arguments
         raise InvalidColumnName unless valid_columns.include?(@options[:column])
