@@ -19,14 +19,14 @@ Add sorty to your model:
 You can optionally specify the default column to sort on, and the default order in which to sort (defaults to id asc):
 
     class MyModel < ActiveRecord::Base
-      sortable updated_at, desc
+      sortable :updated_at, :desc
     end
 
 Next, add sorty to your controller:
 
     class MyModelController < ApplicationController
       def index
-        @my_models = MyModel.all.sorty(params).paginate(:per_page => 20, :page => params[:page])
+        @my_models = MyModel.sorty(params).paginate(:per_page => 20, :page => params[:page])
       end
     end
 
