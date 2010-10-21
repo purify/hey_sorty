@@ -19,7 +19,7 @@ module HeySorty
         raise InvalidOrderValue unless valid_orders.include?(@options[:order])
       
         # Define named scope
-        named_scope :sorty, lambda { |params|
+        scope :sorty, lambda { |params|
           # Sorting attributes
           column = params[:column] || @options[:column]
           order = params[:order] || @options[:order]
