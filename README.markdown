@@ -10,6 +10,8 @@ Install as a plugin:
 
 ## Usage
 
+This branch is for use in Rails 2.3.x apps - for Rails 3, please use the master branch.
+
 Add sorty to your model:
 
     class MyModel < ActiveRecord::Base
